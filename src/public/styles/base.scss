@@ -1,0 +1,170 @@
+@import 'variables';
+
+//base styles
+html,
+body{
+  height:100%;
+  background: $backgroundColor;
+  padding: $bodyPadding;
+  margin: $bodyMargin;
+  font-family: $fontFamily;
+  font-size: $baseFontSize;
+  letter-spacing: $letterSpacing;
+}
+
+p{
+  line-height: $lineHeight;
+}
+
+a{
+  color: $linkColor;
+  &:active{
+    color: $activeColor;
+  }
+  &:hover{
+    color: $hoverColor;
+  }
+  &:visited{
+    color: $visitedColor;
+  }
+}
+
+h1,h2,h3,h4,h5,h6{
+  margin-top: $headMarginTop;
+  margin-bottom: $headMarginBottom;
+  font-weight: $headFontWeight;
+  text-transform: capitalize;
+}
+
+table{
+  width: $tableWidth;
+  border: $tableBorder;
+  margin: $tableMargin;
+  border-radius: $borderRadius;
+  background: $tableBackgroundColor;
+  border-collapse:collapse;
+  th{
+    font-weight: $thWeight;
+  }
+  tr{
+    border-top: $tableBorder;
+    &:nth-child(odd){
+      background: $trAltColour;
+    }
+  }
+  th,td{
+    text-align: $tableTextAlign;
+    padding: $cellPadding;
+  }
+}
+
+input,
+select,
+textarea{
+  border-color: $borderColor;
+  border-style: $borderStyle;
+  border-width: $borderSize;
+  min-width:200px;
+  padding:0.2em 0.5em;
+  line-height: 1.6em;
+  margin-bottom: 1em;
+  font-size:1rem;
+  border-radius: $borderRadius;
+  letter-spacing: $letterSpacing;
+}
+
+label{
+  color: #666;
+  font-size: 0.7em;
+  display: block;
+  margin-bottom:0.15em;
+}
+
+.btn,
+input[type="submit"],
+input[type="reset"],
+button{
+  background: blue;
+  color: #fff;
+  min-width: auto;
+  padding: 0.5em 1em;
+  border: 0;
+  font-size: 0.8rem;
+  border-radius: $borderRadius;
+  letter-spacing: $letterSpacing;
+
+  &:hover{
+    background: darken(blue, 10%);
+    cursor: pointer;
+  }
+}
+
+.wrapper,
+#react-app{
+  height:100%;
+}
+
+.bar-header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  text-align: center;
+  height:40px;
+  h2{
+    flex-grow: 2;
+    margin:0;
+    font-size:1.2em;
+  }
+  .button-box{
+    padding: 1em;
+  }
+}
+
+
+
+.pull-right{
+  float:right;
+}
+
+.pull-left{
+  float: left;
+}
+
+.flex-center-align{
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:100%;
+
+}
+
+.panel{
+  padding:$panelPadding;
+  background:$panelBackColour;
+  border-radius: $borderRadius;
+  margin:10px 0;
+}
+
+.sidebar{
+  position: fixed;
+  width:20%;
+  background:#333;
+  height:100%;
+}
+
+.main-content{
+  width:75%;
+  padding:2em;
+}
+
+.capture-btn{
+  position: absolute;
+  left:43%;
+  bottom:10%;
+  border-radius: 100px;
+  padding:20px 20px;
+  font-size:1.5em;
+  border: 5px solid #fff;
+}

@@ -1,0 +1,42 @@
+$backgroundColor: #f1f1f1;
+$bodyMargin: 0;
+$bodyPadding: 0;
+
+$borderRadius: 2px;
+$borderColor: #ccc;
+$borderSize: 1px;
+$borderStyle: Solid;
+// fonts
+$fontFamily: sans-serif;
+$baseFontSize: 16px;
+$letterSpacing: 0.02em;
+//paragraph
+$lineHeight: 1.4em;
+//links
+$linkColor: blue;
+$activeColor: lighten($linkColor, 20%);
+$visitedColor: darken($linkColor, 20%);
+$hoverColor: darken($linkColor, 20%);
+$focusColor: blue;
+
+//headings
+$headMargin:2em;
+$headMarginBottom:0.8em;
+$headMarginTop:0;
+$headMarginLeft:0;
+$headMarginRight:0;
+$headFontWeight: lighter;
+
+//tables
+$tableWidth: 98%;
+$tableMargin: 0 1%;
+$tableBackgroundColor: #fff;
+$tableBorder: 1px solid #666;
+$trAltColour: darken($tableBackgroundColor, 3%);
+$thWeight: bold;
+$cellPadding: 0.4em;
+$tableTextAlign: left;
+
+//panels
+$panelPadding:2em;
+$panelBackColour: #fff;
