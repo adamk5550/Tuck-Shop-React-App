@@ -6,7 +6,7 @@ import { Router, Route, Link, browserHistory } from 'react-router'
 
 var store = {}
 
-axios.defaults.headers.common['Authorization'] = 'Bearer '+window.localStorage.getItem('token');
+
 
 class Scan extends React.Component{
   constructor(){
@@ -164,6 +164,8 @@ class Dashboard extends React.Component{
     }
   }
   componentDidMount(){
+
+    axios.defaults.headers.common['Authorization'] = 'Bearer '+window.localStorage.getItem('token');
     axios.get('https://shop.wegotwork.co.uk/api/v1/account')
       .then((response) => {
         var account = response.data.account;
@@ -176,7 +178,7 @@ class Dashboard extends React.Component{
       .catch((response) => console.log('error'+response))
   }
   render(){
-
+    console.log('hello')
     return (
       <div className="container">
         <Header />
@@ -213,7 +215,6 @@ var redirect = (nextState, replaceState) => {
 
 var auth = (nextState, replaceState) => {
   let token = window.localStorage.getItem('token');
-  console.log(token);
   if(token === null){
     replaceState(null, '/');
   }else{
