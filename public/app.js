@@ -1,12 +1,9 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import axios from 'axios'
-import md5 from 'js-md5'
 import { Router, Route, Link, browserHistory } from 'react-router'
 
 var store = {}
-
-
 
 class Scan extends React.Component{
   constructor(){
@@ -107,7 +104,7 @@ class Login extends React.Component{
   }
   login(e){
     e.preventDefault();
-    axios.post('https://shop.wegotwork.co.uk/api/v1/authenticate',
+    axios.post('http://tuckshop.allan.cx/api/v1/authenticate',
       {
         'email': ReactDom.findDOMNode(this.refs.email).value,
         'password': ReactDom.findDOMNode(this.refs.password).value
@@ -166,7 +163,7 @@ class Dashboard extends React.Component{
   componentDidMount(){
 
     axios.defaults.headers.common['Authorization'] = 'Bearer '+window.localStorage.getItem('token');
-    axios.get('https://shop.wegotwork.co.uk/api/v1/account')
+    axios.get('https://tuckshop.allan.cx/api/v1/account')
       .then((response) => {
         var account = response.data.account;
         this.setState({
