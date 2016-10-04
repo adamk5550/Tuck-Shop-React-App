@@ -30,7 +30,7 @@
 //             <label >Email</label>
 //             <input name="email" ref="email" type="text" /><br/>
 //
-//             <label >Password</label> 
+//             <label >Password</label>
 //             <input name="password" ref="password" type="password" /><br/>
 //             <input value="Sign In" type="submit" />
 //           </form>

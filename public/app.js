@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import ReactDom from 'react-dom'
 import QrReader from 'react-qr-reader'
+import AlertContainer from 'react-alert'
 import axios from 'axios'
-import login from './Login'
 import { Router, Route, Link, browserHistory } from 'react-router'
 
 var store = {}
@@ -17,87 +17,78 @@ class Container extends React.Component{
   }
 }
 
-class Checkout extends React.Component{
+class Header extends React.Component{
   render(){
-    this.store = store;
+
     return (
-      <div>cat
-        {/* {Object.keys(this.store.items).map((i) => {
-          return (<li id={i}>{this.store.items[i].name + ' £'+this.store.items[i].price}</li>)
-        })} */}
+      <header className="bar-header">
+      <div className="button-box">
+        <Link className="btn" to="/dashboard">Back</Link>
       </div>
+        <h2>Tuck Shop </h2>
+        <div className="button-box">
+          <Link className="btn" to="/scan">Scan</Link>
+        </div>
+      </header>
     )
   }
-}
-
-Checkout.contextTypes = {
-  result: React.PropTypes.object
 }
 
 class Scan extends Component {
   constructor(props){
     super(props)
     this.state = {
-      result: '',
+      result: {}
     }
+
+    this.alertOptions = {
+      offset: 0,
+      position: 'bottom left',
+      theme: 'dark',
+      time: 0,
+      transition: 'scale'
+    };
   }
+
   handleScan(data){
     this.setState({
       result: data,
     })
-    store = data;
-    console.log(store);
 
-    let alert = confirm('Ordered Successfully');
-    if(alert == true) {
-      browserHistory.push('/checkout')
-    }
+    let purchased = JSON.parse(data);
+
+    store = purchased;
+
+    let item = purchased.items[0].name;
+
+    msg.show(item + ' Purchased', {
+      type: 'success'
+    });
 
     // axios.post('', data)
     //   .then(function(response){
     //     console.log('Ordered Successfully')
     //     browserHistory.push('checkout');
     //   }).catch((response) => console.log('error'+response));
-
   }
+
   handleError(err){
+    msg.show('Please Try Again', {
+      type: 'error'
+    });
     console.error(err)
   }
-  render(){
-    const previewStyle = {
-      height: 600,
-      width: 600,
-    }
 
+  render(){
     return(
       <div className="wrapper">
+        <Header />
         <QrReader
-          className="QR"
-          previewStyle={previewStyle}
           handleError={this.handleError}
-          handleScan={this.handleScan.bind(this)}/>
-        <p>{this.state.result}</p>
+          handleScan={this.handleScan.bind(this)}
+          interval={2000} />
+        <AlertContainer ref={(a) => global.msg = a} {...this.alertOptions} />
       </div>
-    )
-  }
-}
-
-Scan.contextTypes = {
-  result: React.PropTypes.object,
-  history: React.PropTypes.object
-
-}
-
-class Header extends React.Component{
-  render(){
-    return (
-      <header className="bar-header">
-      <div className="button-box"></div>
-        <h2>Tuck Shop </h2>
-        <div className="button-box">
-          <Link className="btn" to="/scan">Scan</Link>
-        </div>
-      </header>
     )
   }
 }
@@ -121,6 +112,7 @@ class Dashboard extends React.Component{
           account: account
         });
         console.log(this.state)
+        console.log(this.state.transactions);
       })
       .catch((response) => console.log('error'+response))
   }
@@ -130,7 +122,6 @@ class Dashboard extends React.Component{
         <Header />
           <section className="panel">
             <h2>Account</h2>
-
             <span>{this.state.account.name} </span>
             <img src={this.state.account.grav} />
           </section>
@@ -214,7 +205,6 @@ let routes = {
   indexRoute: { component: Login, onEnter:redirect  },
   childRoutes: [
     { path: 'dashboard', component: Dashboard, onEnter: auth},
-    { path: 'checkout', component: Checkout, onEnter: auth},
     { path: 'scan', component: Scan, onEnter: auth}
   ]
 };

@@ -140,6 +140,7 @@ box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); }
   font-size: 1.5em;
   border: 5px solid #fff; }
 
+
 .login:before {
   content: "";
   position: fixed;
@@ -159,22 +160,27 @@ box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); }
   -moz-filter: blur(5px);
   -o-filter: blur(5px);
   -ms-filter: blur(5px);
-  filter: blur(5px);
-}
+  filter: blur(5px);}
 
 .login {
   overflow: auto;
   position: relative;
-  z-index: 9999;
+  z-index: 9999;}
+
+input[type='text'] {background-color: white;}
+
+video {
+  object-fit: none;
+  width:100vw;
+  height: 100vh;}
+
+section {
+  overflow:hidden;
 }
 
-input[type='text'] {
-    background-color: white;
-}
+.react-alerts .alert {
+  margin: 1.5px 0px 0px 0px !important;
+  width:100vw !important;
 
-.QR {
-  object-fit: cover;
-  width: 100%;
 }
-
 /*# sourceMappingURL=base.css.map */

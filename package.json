@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --content-base public/",
-    "clean": "rm -rf ./node_modules"
+    "clean": "rm -rf ./node_modules && npm install"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +20,8 @@
   },
   "dependencies": {
     "react": "^15.3.2",
+    "react-addons-css-transition-group": "^15.3.2",
+    "react-alert": "^1.0.14",
     "react-dom": "^15.3.2",
     "react-router": "^2.8.1",
     "webpack": "1.13.1",
