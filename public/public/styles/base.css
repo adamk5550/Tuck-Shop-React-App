@@ -67,8 +67,9 @@ label {
 input[type="submit"],
 input[type="reset"],
 button {
-  background: blue;
+  background: orange;
   color: #fff;
+  width: 100%
   min-width: auto;
   padding: 0.5em 1em;
   border: 0;
@@ -92,7 +93,8 @@ button {
   justify-content: center;
   background: #fff;
   text-align: center;
-  height: 40px; }
+  height: 40px;
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); }
   .bar-header h2 {
     flex-grow: 2;
     margin: 0;
@@ -117,13 +119,13 @@ button {
   padding: 2em;
   background: #fff;
   border-radius: 2px;
-  margin: 10px 0; }
+  margin: 10px 0;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);}
 
-.sidebar {
-  position: fixed;
-  width: 20%;
-  background: #333;
-  height: 100%; }
+.panel-header {
+  display: block;
+
+}
 
 .main-content {
   width: 75%;
@@ -137,5 +139,42 @@ button {
   padding: 20px 20px;
   font-size: 1.5em;
   border: 5px solid #fff; }
+
+.login:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+
+  display: block;
+  background-image: url('http://i1.thejournal.co.uk/incoming/article6878462.ece/ALTERNATES/s615/JS34142117.jpg');
+  background-size:cover;
+  width: 100%;
+  height: 100%;
+
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.login {
+  overflow: auto;
+  position: relative;
+  z-index: 9999;
+}
+
+input[type='text'] {
+    background-color: white;
+}
+
+.QR {
+  object-fit: cover;
+  width: 100%;
+}
 
 /*# sourceMappingURL=base.css.map */
