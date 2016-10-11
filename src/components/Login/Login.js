@@ -20,7 +20,7 @@ class Login extends Component{
           this.storeToken(response.data)
           this.context.router.push('/dashboard');
         })
-        .catch((response) => console.log('error'+response))
+        .catch((response) => console.log('error'+ response))
     }
     render(){
       return (

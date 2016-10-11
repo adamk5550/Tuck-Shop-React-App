@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
 import auth from '../../auth'
 
 class Dashboard extends Component{
@@ -20,19 +21,22 @@ class Dashboard extends Component{
           transactions: response.data.transactions,
           account: account
         });
-        console.log(this.state)
-        console.log(this.state.transactions);
       })
       .catch((response) => console.log('error'+response))
   }
+
+  handleOnClick(){
+    auth.logout();
+  }
+
   render(){
     return (
       <div className="container">
-          <section className="panel">
+          <section>
             <h2>Account</h2>
             <span>{this.state.account.name} </span>
           </section>
-          <section className="panel">
+          <section>
             <h2>Transactions</h2>
             <ul>
             {this.state.transactions.map((item) => {
@@ -42,6 +46,12 @@ class Dashboard extends Component{
             })}
             </ul>
           </section>
+          <section>
+            <button onClick={this.handleOnClick}>Logout</button>
+          </section>
+
+
+
       </div>
     )
   }

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-class Scan extends Component {
+class NotFound extends Component {
   render() {
     return (
-<h1>404 Not Found</h1>
+      <h1>404 Not Found</h1>
     );
   }
 }
 
-export default Scan;
+export default NotFound;
