@@ -1,6 +1,6 @@
 # Tuck-Shop-React-App
 
-Tuck Shop Application using ReactJs
+Tuck Shop Application using ReactJS
 
 ### Getting Started
 

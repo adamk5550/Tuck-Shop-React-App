@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
-import ReactDom from 'react-dom'
-import axios from 'axios'
-import Header from './Header'
-import { Router, Route, Link, browserHistory } from 'react-router'
+import React, { Component } from 'react';
+import axios from 'axios';
 
-class Dashboard extends React.Component{
+import auth from '../../auth'
+
+class Dashboard extends Component{
   constructor(){
     super()
     this.state = {
@@ -13,8 +12,7 @@ class Dashboard extends React.Component{
     }
   }
   componentDidMount(){
-
-    axios.defaults.headers.common['Authorization'] = 'Bearer '+window.localStorage.getItem('token');
+    axios.defaults.headers.common['Authorization'] = 'Bearer '+ auth.getToken();
     axios.get('https://tuckshop.allan.cx/api/v1/account')
       .then((response) => {
         var account = response.data.account;
@@ -30,17 +28,14 @@ class Dashboard extends React.Component{
   render(){
     return (
       <div className="container">
-        <Header />
           <section className="panel">
             <h2>Account</h2>
             <span>{this.state.account.name} </span>
-            <img src={this.state.account.grav} />
           </section>
           <section className="panel">
             <h2>Transactions</h2>
             <ul>
             {this.state.transactions.map((item) => {
-              var i = 0;
               return (
                 <li key={item.id}>£{item.amount}</li>
               )
@@ -52,4 +47,4 @@ class Dashboard extends React.Component{
   }
 }
 
-export {Dashboard as default}
+export default Dashboard;
