@@ -4,23 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --content-base public/"
+    "start": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --content-base public/",
+    "clean": "rm -rf ./node_modules && npm install"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "axios": "^0.14.0",
     "babel-core": "^6.4.5",
     "babel-loader": "^6.2.1",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
+    "react-qr-reader": "^0.2.9",
     "uglify-loader": "^1.3.0"
   },
   "dependencies": {
-    "history": "^1.17.0",
-    "react": "^0.14.6",
-    "react-dom": "^0.14.6",
-    "react-router": "^1.0.3",
+    "react": "^15.3.2",
+    "react-addons-css-transition-group": "^15.3.2",
+    "react-alert": "^1.0.14",
+    "react-dom": "^15.3.2",
+    "react-router": "^2.8.1",
     "webpack": "1.13.1",
     "webpack-dev-server": "^1.15.1"
   }
