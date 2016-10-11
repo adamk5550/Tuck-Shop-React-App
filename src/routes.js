@@ -3,7 +3,7 @@ import { IndexRoute , Router, Route } from 'react-router';
 
 import App from './components/App/App';
 import Dashboard from './components/Dashboard/Dashboard'
-import Login from './components/Login/Login';
+import Login from './components/Login/LoginWrapper';
 import Scanner from './components/Scanner/Scan';
 import NotFound from './components/NotFound/NotFound';
 
