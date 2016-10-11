@@ -28,20 +28,11 @@ class Scan extends Component {
     })
 
     let purchased = JSON.parse(data);
-
-    store = purchased;
-
     let item = purchased.items[0].name;
 
     msg.show(item + ' Purchased', {
       type: 'success'
     });
-
-    // axios.post('', data)
-    //   .then(function(response){
-    //     console.log('Ordered Successfully')
-    //     browserHistory.push('checkout');
-    //   }).catch((response) => console.log('error'+response));
   }
 
   handleError(err){

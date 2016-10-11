@@ -23,6 +23,7 @@ class Container extends React.Component{
 class Login extends React.Component{
     storeToken(data){
     window.localStorage.setItem('token', data.token);
+    console.log(data.token);
   }
   login(e){
     e.preventDefault();
@@ -67,6 +68,7 @@ var redirect = (nextState, replace) => {
     return true
   }
 }
+
 
 var auth = (nextState, replace) => {
   let token = window.localStorage.getItem('token');

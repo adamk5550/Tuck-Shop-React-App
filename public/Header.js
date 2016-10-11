@@ -4,7 +4,6 @@ import { Router, Route, Link, browserHistory } from 'react-router'
 
 class Header extends React.Component{
   render(){
-
     return (
       <header className="bar-header">
       <div className="button-box">

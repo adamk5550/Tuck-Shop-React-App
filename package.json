@@ -8,7 +8,7 @@
     "clean": "rm -rf ./node_modules && npm install"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "axios": "^0.14.0",
     "babel-core": "^6.4.5",
