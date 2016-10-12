@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Login from './Login'
 import SignUp from './SignUp'
 import './Login.css';
@@ -19,14 +20,14 @@ class LoginWrapper extends Component{
   render(){
     const text = !this.state.login ? 'Already have an Account? ' : 'Create an Account';
     return (
-      <div>
+      <div className="login-wrapper">
         <div className="login">
-          {this.state.login && <Login />}
-          {!this.state.login &&<SignUp />}
+          <section>
+            {this.state.login && <Login />}
+            {!this.state.login &&<SignUp />}
+            <button onClick={this.handleOnClick}>{text}</button>
+          </section>
         </div>
-        <section>
-          <button onClick={this.handleOnClick}>{text}</button>
-        </section>
       </div>
     )
   }

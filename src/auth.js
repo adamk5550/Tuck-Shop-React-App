@@ -1,6 +1,10 @@
 import { browserHistory } from 'react-router';
 
 module.exports = {
+  storeToken(data) {
+    return window.localStorage.setItem('token', data.token);
+  },
+
   getToken() {
     return localStorage.token
   },

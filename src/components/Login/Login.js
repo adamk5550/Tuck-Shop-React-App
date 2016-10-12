@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import axios from 'axios';
 
+import auth from '../../auth'
+
 import './Login.css';
 
 class Login extends Component{
@@ -12,11 +14,6 @@ class Login extends Component{
     }
   }
 
-  storeToken(data){
-    window.localStorage.setItem('token', data.token);
-    console.log(data.token);
-  }
-
   login(e){
     e.preventDefault();
     axios.post('http://tuckshop.allan.cx/api/v1/authenticate',
@@ -25,7 +22,7 @@ class Login extends Component{
         'password': ReactDom.findDOMNode(this.refs.password).value
       })
       .then((response) => {
-        this.storeToken(response.data)
+        auth.storeToken(response.data);
         this.context.router.push('/dashboard');
       })
       .catch((response) => {
@@ -37,9 +34,9 @@ class Login extends Component{
   render(){
     return (
       <div className="login">
-      {this.state.error && <div>Sorry there has been an error</div>}
+      {this.state.error && <div className="error">Sorry there has been an error, Please try again</div>}
         <section>
-          <h2>Sign In</h2>
+          <h2>Welcome Back</h2>
           <form ref="form" onSubmit={this.login.bind(this)}>
             <input name="email" ref="email" placeholder="Email" type="text" /><br/>
             <input name="password" ref="password" placeholder="Password" type="password" /><br/>
