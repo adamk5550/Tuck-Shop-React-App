@@ -4,3 +4,29 @@ body {
   font-family: sans-serif;
   background-color: #f2f2f2;
 }
+
+
+:root {
+  --red: #4285F4;
+  --blue: #00b;
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+    width: 100vw;
+}
+
+li {
+    display: block;
+    padding: 9px 0px;
+    border-bottom: 1px solid #D7D7D7;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 19px;
+    color: #000;
+    background-color: #fff;
+}

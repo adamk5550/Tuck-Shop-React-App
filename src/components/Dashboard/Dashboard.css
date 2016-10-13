@@ -1,7 +1,5 @@
-.container > section {
-  padding:1em;
-  background: #fff;
-  border-radius: 2px;
-  margin: 10px 0;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+.user {
+  margin-top: 0px;
+  color: white;
+  background-color: var(--red);
 }
