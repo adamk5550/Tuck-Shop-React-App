@@ -3,7 +3,6 @@ import ReactDom from 'react-dom';
 import axios from 'axios';
 
 import auth from '../../auth'
-
 import './Login.css';
 
 class Login extends Component{
@@ -16,7 +15,7 @@ class Login extends Component{
 
   login(e){
     e.preventDefault();
-    axios.post('http://tuckshop.allan.cx/api/v1/authenticate',
+    axios.post('https://feedme.allan.cx/api/v1/authenticate',
       {
         'email': ReactDom.findDOMNode(this.refs.email).value,
         'password': ReactDom.findDOMNode(this.refs.password).value
@@ -38,8 +37,8 @@ class Login extends Component{
         <section>
           <h2>Welcome Back</h2>
           <form ref="form" onSubmit={this.login.bind(this)}>
-            <input name="email" ref="email" placeholder="Email" type="text" /><br/>
-            <input name="password" ref="password" placeholder="Password" type="password" /><br/>
+            <input name="email" ref="email" placeholder="Email" type="text" value="test@user.com" /><br/>
+            <input name="password" ref="password" placeholder="Password" type="password" value="test@user.com" /><br/>
             <input value="Sign In" type="submit" />
           </form>
         </section>

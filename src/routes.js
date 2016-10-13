@@ -2,13 +2,14 @@ import React from 'react';
 import { IndexRoute , Router, Route } from 'react-router';
 
 import App from './components/App/App';
+import auth from './auth'
 import Dashboard from './components/Dashboard/Dashboard'
 import Login from './components/Login/LoginWrapper';
 import Scanner from './components/Scanner/Scan';
 import NotFound from './components/NotFound/NotFound';
 
 const redirect = (nextState, replace) => {
-  let token = window.localStorage.getItem('token');
+  let token = auth.token();
   if(token !== null){
     replace('/dashboard');
   }else{
@@ -17,7 +18,7 @@ const redirect = (nextState, replace) => {
 }
 
 const requireAuth = (nextState, replace) => {
-  let token = window.localStorage.getItem('token');
+  let token = auth.token();
   if(token === null){
     replace('/');
   }else{

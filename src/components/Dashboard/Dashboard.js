@@ -15,12 +15,11 @@ class Dashboard extends Component{
 
   componentDidMount(){
     axios.defaults.headers.common['Authorization'] = 'Bearer '+ auth.getToken();
-    axios.get('https://tuckshop.allan.cx/api/v1/account')
+    axios.get('https://feedme.allan.cx/api/v1/account')
       .then((response) => {
-        var account = response.data.account;
         this.setState({
           transactions: response.data.transactions,
-          account: account
+          account: response.data.account
         });
       })
       .catch((response) => console.log('error'+response))
@@ -31,22 +30,14 @@ class Dashboard extends Component{
   }
 
   render(){
+      console.log(this.state.account);
     return (
       <div className="container">
           <section className="">
-            <h2 className="">Account</h2>
-            <span className=""> {this.state.account.name} </span>
+            <h2>Your Account</h2>
           </section>
           <section>
-            <h2>Transactions</h2>
-            <ul>
-            {this.state.transactions.map((item) => {
-              return (
-                <li key={item.id}>£{item.amount}</li>
-
-              )
-            })}
-            </ul>
+            <h2>Previous Order</h2>
           </section>
           <section>
             <button onClick={this.handleOnClick}>Logout</button>
