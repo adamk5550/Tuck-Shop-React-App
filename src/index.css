@@ -1,3 +1,7 @@
+html {
+  overflow: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -10,7 +14,6 @@ body {
   --red: #4285F4;
   --blue: #00b;
 }
-
 
 ul {
     list-style-type: none;
@@ -29,4 +32,24 @@ li {
     font-size: 19px;
     color: #000;
     background-color: #fff;
+}
+
+
+.card {
+  width: 100vw;
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  margin: 10px 0px;
+}
+
+.card-header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 40px;
+}
+
+.card-container {
+    padding: 10px;
 }

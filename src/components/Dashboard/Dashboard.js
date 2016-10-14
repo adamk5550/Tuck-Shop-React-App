@@ -6,12 +6,12 @@ import './Dashboard.css'
 import auth from '../../auth'
 
 class Dashboard extends Component{
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
       purchases: [],
       account: []
-    }
+    };
   }
 
   componentDidMount(){
@@ -19,12 +19,11 @@ class Dashboard extends Component{
     axios.get('https://feedme.allan.cx/api/v1/account')
       .then((response) => {
         this.setState({
-          purchases: response.data.purchases,
+          purchases: (response.data.purchases) ? response.data.purchases : [],
           account: response.data.account
         });
-        console.log(response.data);
       })
-      .catch((response) => console.log('error'+response))
+      .catch((err) => console.log('error '+ JSON.stringify(err)))
   }
 
   handleOnClick(){
@@ -32,7 +31,6 @@ class Dashboard extends Component{
   }
 
   render(){
-
     let previousOrders = Object.keys(this.state.purchases).map((i) => {
         return (
           <li id={this.state.purchases[i]}>
@@ -41,16 +39,23 @@ class Dashboard extends Component{
         )
     })
 
+    if (previousOrders === []) {
+      return 'You have no previous transactions'
+    }
+
+    const avatarStyle = {
+      border: '1px white solid'
+    }
+
     return (
       <div className="container">
           <section className="user">
-            <Avatar round name={this.state.account.name} />
+            <Avatar round name={this.state.account.name} style={avatarStyle}/>
             <h2>{this.state.account.name}</h2>
           </section>
           <section>
-            <h2>Previous Order</h2>
-            <ul>{previousOrders}
-            <li>wooooo</li></ul>
+            <p>Previous Order</p>
+            <ul>{previousOrders}</ul>
           </section>
       </div>
     )

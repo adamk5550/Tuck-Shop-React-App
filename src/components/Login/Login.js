@@ -37,8 +37,8 @@ class Login extends Component{
         <section>
           <h2>Welcome Back</h2>
           <form ref="form" onSubmit={this.login.bind(this)}>
-            <input name="email" ref="email" placeholder="Email" type="text" value="test@user.com" /><br/>
-            <input name="password" ref="password" placeholder="Password" type="password" value="test@user.com" /><br/>
+            <input name="email" ref="email" placeholder="Email" type="text" /><br/>
+            <input name="password" ref="password" placeholder="Password" type="password" /><br/>
             <input value="Sign In" type="submit" />
           </form>
         </section>
