@@ -1,5 +1,13 @@
+# dependencies
+node_modules
+
+# testing
+coverage
+
+# production
+build
+
+# misc
 .DS_Store
-node_modules/
-node_modules/*
-.sass-cache/
-.sass-cache/*
+.env
+npm-debug.log
