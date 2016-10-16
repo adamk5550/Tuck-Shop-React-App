@@ -22,7 +22,7 @@ class Checkout extends Component {
     return(
       <div className="wrapper">
         <div className="card">
-          <div className="card-container">{this.props.purchase}</div>
+          <div className="card-container">{JSON.stringify(this.props.purchase)}</div>
         </div>
 
         <div className="card" onClick={this.handleOnClick.bind(this)}>

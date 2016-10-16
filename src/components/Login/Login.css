@@ -16,7 +16,6 @@
     ),url('./15a.png');
   background-size: cover;
 
-
   -webkit-filter: blur(2.5px);
   -moz-filter: blur(2.5px);
   -o-filter: blur(2.5px);
@@ -60,6 +59,16 @@ button:focus {
     outline: none;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+
+    -webkit-text-fill-color: white !important;
+}
+
+
 input[type=submit] {
   width: 100%;
   background-color: #407b99;
@@ -82,5 +91,6 @@ input[type=submit]:hover {
 }
 
 .btn-login {
-  color: white
+  color: white;
+  font-weight:100;
 }

@@ -31,31 +31,36 @@ class Dashboard extends Component{
   }
 
   render(){
+    console.log(this.state.account);
     let previousOrders = Object.keys(this.state.purchases).map((i) => {
         return (
-          <li id={this.state.purchases[i]}>
-          {this.state.purchases[i].products + ' £'+this.state.purchases[i].total}
-          </li>
+          <div className="card" id={this.state.purchases[i]}>
+          <div className="card-header">
+            <span className="pull-left"> {this.state.purchases[i].date} </span>
+            <span className="pull-right">{' £'+this.state.purchases[i].total}</span>
+          </div>
+          <div className="card-container">{this.state.purchases[i].products}</div>
+          </div>
         )
     })
 
-    if (previousOrders === []) {
-      return 'You have no previous transactions'
-    }
-
     const avatarStyle = {
-      border: '1px white solid'
+      border: '1px white solid',
+      margin: '20px'
     }
 
     return (
       <div className="container">
           <section className="user">
-            <Avatar round name={this.state.account.name} style={avatarStyle}/>
-            <h4>{this.state.account.name}</h4>
+            <span className="pull-left"><Avatar round name={this.state.account.name} style={avatarStyle}/></span>
+            <span className="pull-left">
+              <h2>£ {this.state.account.balance}</h2>
+              <h4>{this.state.account.name}</h4>
+            </span>
           </section>
 
           <section>
-            <p>Previous Order</p>
+            <div className="card-header">Previous Orders</div>
             <ul>{previousOrders}</ul>
           </section>
       </div>
