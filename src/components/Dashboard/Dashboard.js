@@ -51,8 +51,9 @@ class Dashboard extends Component{
       <div className="container">
           <section className="user">
             <Avatar round name={this.state.account.name} style={avatarStyle}/>
-            <h2>{this.state.account.name}</h2>
+            <h4>{this.state.account.name}</h4>
           </section>
+
           <section>
             <p>Previous Order</p>
             <ul>{previousOrders}</ul>

@@ -25,7 +25,7 @@ class LoginWrapper extends Component{
           <section>
             {this.state.login && <Login />}
             {!this.state.login &&<SignUp />}
-            <button onClick={this.handleOnClick}>{text}</button>
+            <button className="btn-login" onClick={this.handleOnClick}>{text}</button>
           </section>
         </div>
       </div>
