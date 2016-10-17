@@ -10,19 +10,29 @@ class Scan extends Component {
     super(props)
     this.state = {
       result: '',
-      checkout: false
+      checkout: false,
+      legacy: false
     }
     this.handleScan = this.handleScan.bind(this);
+    this.handleError= this.handleError.bind(this); 
   }
 
   handleScan(data){
     this.setState({
       checkout: !this.state.checkout,
-      result: JSON.parse(data)
+      result: JSON.parse(data),
+      legacy: false
     });
   }
 
-  handleError(err){ console.error(err) }
+  handleError(err){
+     console.error(err);
+     this.setState({
+       result: '',
+       checkout: false,
+       legacy: true
+     });
+   }
 
   render(){
     return(
@@ -30,6 +40,7 @@ class Scan extends Component {
         {!this.state.checkout && <QrReader
           handleError={this.handleError}
           handleScan={this.handleScan}
+          legacyMode={this.state.legacy}
           interval={2000} />}
           {this.state.checkout && <Checkout purchase={this.state.result} />}
       </div>
