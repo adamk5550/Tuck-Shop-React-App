@@ -61,7 +61,7 @@ class Dashboard extends Component{
 
           <section>
             <div className="card-header">Previous Orders</div>
-            <ul>{previousOrders}</ul>
+            <ul>{previousOrders.reverse()}</ul>
           </section>
       </div>
     )
