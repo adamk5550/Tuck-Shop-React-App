@@ -18,7 +18,7 @@ class Scan extends Component {
   handleScan(data){
     this.setState({
       checkout: !this.state.checkout,
-      result: data
+      result: JSON.parse(data)
     });
   }
 

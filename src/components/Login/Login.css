@@ -16,11 +16,11 @@
     ),url('./15a.png');
   background-size: cover;
 
-  -webkit-filter: blur(2.5px);
-  -moz-filter: blur(2.5px);
-  -o-filter: blur(2.5px);
-  -ms-filter: blur(2.5px);
-  filter: blur(2.5px);
+  -webkit-filter: blur(3.5px);
+  -moz-filter: blur(3.5px);
+  -o-filter: blur(3.5px);
+  -ms-filter: blur(3.5px);
+  filter: blur(3.5px);
 }
 
 .login {
