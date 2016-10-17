@@ -25,7 +25,7 @@ class Login extends Component{
         this.context.router.push('/dashboard');
       })
       .catch((response) => {
-        console.log('error'+ response);
+        alert('error'+ response.data);
         this.setState({error:true})
       })
   }

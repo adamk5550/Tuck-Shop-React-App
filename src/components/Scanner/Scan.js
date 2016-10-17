@@ -10,37 +10,40 @@ class Scan extends Component {
     super(props)
     this.state = {
       result: '',
-      checkout: false,
-      legacy: false
+      checkout: false
     }
     this.handleScan = this.handleScan.bind(this);
-    this.handleError= this.handleError.bind(this); 
   }
 
   handleScan(data){
     this.setState({
       checkout: !this.state.checkout,
-      result: JSON.parse(data),
-      legacy: false
+      result: JSON.parse(data)
     });
   }
 
   handleError(err){
      console.error(err);
-     this.setState({
-       result: '',
-       checkout: false,
-       legacy: true
-     });
    }
 
   render(){
+    // Prefer camera resolution nearest to 1280x720.
+    var constraints = { audio: false, video: { facingMode: { exact: "user" } } };
+
+    navigator.mediaDevices.getUserMedia(constraints)
+    .then(function(mediaStream) {
+      var video = document.querySelector('video');
+      video.srcObject = mediaStream;
+      video.onloadedmetadata = function(e) {
+        video.play();
+      };
+    })
+    .catch(function(err) { console.log(err.name + ": " + err.message); }); // always
     return(
       <div className="wrapper">
         {!this.state.checkout && <QrReader
           handleError={this.handleError}
           handleScan={this.handleScan}
-          legacyMode={this.state.legacy}
           interval={2000} />}
           {this.state.checkout && <Checkout purchase={this.state.result} />}
       </div>

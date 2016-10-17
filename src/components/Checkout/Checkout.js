@@ -13,7 +13,6 @@ class Checkout extends Component {
     };
   }
 
-
   componentDidMount() {
     axios.defaults.headers.common['Authorization'] = 'Bearer '+ auth.getToken();
     axios.get('https://feedme.allan.cx/api/v1/app_products')
