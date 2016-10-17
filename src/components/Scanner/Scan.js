@@ -28,7 +28,7 @@ class Scan extends Component {
 
   render(){
     // Prefer camera resolution nearest to 1280x720.
-    var constraints = { audio: false, video: { facingMode: { exact: "user" } } };
+    var constraints = { audio: false, video: { facingMode: { exact: "environment" } } };
 
     navigator.mediaDevices.getUserMedia(constraints)
     .then(function(mediaStream) {
