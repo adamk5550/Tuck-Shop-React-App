@@ -49,19 +49,26 @@ class Checkout extends Component {
 
   render(){
     const { products, purchased } = this.state;
+
+    let cart = purchased.map((item, idx) => {
+      console.log(item);
+      return <div class="card" key={idx}>
+      <div className="card-header">
+      <div className="pull-left">{item.product_name} </div>
+      <div className="pull-right">{'£' + item.price}</div>
+      </div>
+      <div className="card-container padding">{item.description}</div>
+      </div>
+    })
+
     return(
       <div className="wrapper">
         <div className="card">
-          <div className="card-header"><h4> Checkout </h4></div>
-          <div className="card-container">
-            {purchased.map((item, idx) => {
-              console.log(item);
-              return <div key={idx}>{item.product_name} + {item.price}</div>
-            })}
+          <div className="card-header"> Checkout </div>
+            {this.state.purchase == null ? <ul>{cart}</ul> : <h4>Error Please Try again</h4>}
           </div>
-        </div>
 
-        <div type="submit" className="btn" onClick={this.handleOnClick.bind(this)}>
+        <div className="btn" onClick={this.handleOnClick.bind(this)}>
           Order
         </div>
       </div>

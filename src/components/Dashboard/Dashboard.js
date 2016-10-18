@@ -31,7 +31,7 @@ class Dashboard extends Component{
   }
 
   render(){
-    console.log(this.state.account);
+    console.log(this.state.purchases);
     let previousOrders = Object.keys(this.state.purchases).map((i) => {
         return (
           <div className="card" id={this.state.purchases[i]}>
@@ -54,14 +54,14 @@ class Dashboard extends Component{
           <section className="user">
             <span className="pull-left"><Avatar round name={this.state.account.name} style={avatarStyle}/></span>
             <span className="pull-left">
-              <h2>£ {this.state.account.balance}</h2>
-              <h4>{this.state.account.name}</h4>
+              {!this.state.account.balance == null ? <h2 className="h2-dash">£ {this.state.account.balance}</h2> : <h2 className="h2-dash">£0.00</h2>}
+              <h2 className="h2-dash">{this.state.account.name}</h2>
             </span>
           </section>
 
           <section>
             <div className="card-header">Previous Orders</div>
-            <ul>{previousOrders.reverse()}</ul>
+            {!this.state.purchases == null ? <ul>{previousOrders.reverse()}</ul> : <h4>Looks like you need to make an order!</h4>}
           </section>
       </div>
     )
