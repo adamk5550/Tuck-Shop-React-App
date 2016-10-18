@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import browserHistory from 'react-router';
 
 import auth from '../../auth';
 import './Checkout.css';
@@ -40,10 +41,14 @@ class Checkout extends Component {
     axios.post('https://feedme.allan.cx/api/v1/checkout', this.props.purchase)
       .then((response) => {
         let purchased = JSON.stringify(response.data);
-        alert(purchased);
+        let r = confirm(purchased);
+        if (r == true){
+          this.context.router.push('/dashboard');
+        }
       })
       .catch((response) => {
         console.log('error'+ response);
+        alert('Error'+ response);
       })
   }
 
@@ -75,5 +80,9 @@ class Checkout extends Component {
     )
   }
 }
+
+Checkout.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
 
 export default Checkout;

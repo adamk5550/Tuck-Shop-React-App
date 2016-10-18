@@ -22,6 +22,7 @@ class LoginWrapper extends Component{
     return (
       <div className="login-wrapper">
         <div className="login">
+        <img className="image" src="https://feedme.allan.cx/images/logo.png?fsadf"></img>
           <section>
             {this.state.login && <Login />}
             {!this.state.login &&<SignUp />}
