@@ -43,7 +43,7 @@ class Checkout extends Component {
         let purchased = JSON.stringify(response.data);
         let r = confirm(purchased);
         if (r == true){
-          this.context.router.push('/dashboard');
+          this.context.router.push('/');
         }
       })
       .catch((response) => {

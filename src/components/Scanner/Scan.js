@@ -44,7 +44,7 @@ class Scan extends Component {
         {!this.state.checkout && <QrReader
           handleError={this.handleError}
           handleScan={this.handleScan}
-          // facingMode={'rear'}
+          facingMode={'rear'}
           interval={2000} />}
           {this.state.checkout && <Checkout purchase={this.state.result} />}
       </div>
