@@ -4,13 +4,14 @@
   "private": true,
   "devDependencies": {
     "axios": "^0.14.0",
-    "react-addons-css-transition-group": "^15.3.2",
     "react-qr-reader": "^0.2.9",
     "react-router": "^2.8.1",
     "react-scripts": "0.6.1"
   },
   "dependencies": {
     "react": "^15.3.2",
+    "react-addons-css-transition-group": "^15.3.2",
+    "react-alert": "^1.0.14",
     "react-avatar": "^2.2.1",
     "react-dom": "^15.3.2"
   },

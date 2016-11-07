@@ -25,7 +25,7 @@ class Login extends Component{
         this.context.router.push('/dashboard');
       })
       .catch((response) => {
-        console.log('error'+ response);
+        alert('error'+ response.data);
         this.setState({error:true})
       })
   }
@@ -35,7 +35,7 @@ class Login extends Component{
       <div className="login">
       {this.state.error && <div className="error">Sorry there has been an error, Please try again</div>}
         <section>
-          <h2>Welcome Back</h2>
+          <h2 className="btn-login">Welcome Back</h2>
           <form ref="form" onSubmit={this.login.bind(this)}>
             <input name="email" ref="email" placeholder="Email" type="text" /><br/>
             <input name="password" ref="password" placeholder="Password" type="password" /><br/>

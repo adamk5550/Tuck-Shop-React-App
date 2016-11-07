@@ -22,10 +22,11 @@ class LoginWrapper extends Component{
     return (
       <div className="login-wrapper">
         <div className="login">
+        <img className="image" src="https://feedme.allan.cx/images/logo.png?fsadf"></img>
           <section>
             {this.state.login && <Login />}
             {!this.state.login &&<SignUp />}
-            <button onClick={this.handleOnClick}>{text}</button>
+            <a className="btn-login" onClick={this.handleOnClick}>{text}</a>
           </section>
         </div>
       </div>

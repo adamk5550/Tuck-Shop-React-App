@@ -18,18 +18,33 @@ class Scan extends Component {
   handleScan(data){
     this.setState({
       checkout: !this.state.checkout,
-      result: data
+      result: JSON.parse(data)
     });
   }
 
-  handleError(err){ console.error(err) }
+  handleError(err){
+     console.error(err);
+   }
 
   render(){
+    // // Prefer camera resolution nearest to 1280x720.
+    // var constraints = { audio: false, video: { facingMode: { exact: "environment" } } };
+    //
+    // navigator.mediaDevices.getUserMedia(constraints)
+    // .then(function(mediaStream) {
+    //   var video = document.querySelector('video');
+    //   video.srcObject = mediaStream;
+    //   video.onloadedmetadata = function(e) {
+    //     video.play();
+    //   };
+    // })
+    // .catch(function(err) { console.log(err.name + ": " + err.message); }); // always
     return(
       <div className="wrapper">
         {!this.state.checkout && <QrReader
           handleError={this.handleError}
           handleScan={this.handleScan}
+          facingMode={'rear'}
           interval={2000} />}
           {this.state.checkout && <Checkout purchase={this.state.result} />}
       </div>

@@ -1,14 +1,34 @@
-.login-wrapper {
+.login:before {
+  content: "";
+  display: block;
   position: absolute;
   width:100vw;
   height: 100vh;
-  background-color: #f2f2f2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),url('./15a.png');
+  background-size: cover;
+
+  -webkit-filter: blur(3.5px);
+  -moz-filter: blur(3.5px);
+  -o-filter: blur(3.5px);
+  -ms-filter: blur(3.5px);
+  filter: blur(3.5px);
 }
 
 .login {
+  overflow: auto;
+  z-index: 9999;
   border-radius: 5px;
   padding: 20px;
-  margin-top: 4vh
+  margin-top: 4vh;
 }
 
 input {
@@ -16,10 +36,38 @@ input {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+  border-bottom: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  background-color: transparent;
+  color: #fff;
+
 }
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+color: #fff;
+font-size: 14px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+[contenteditable="true"]:focus {
+    outline: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+
+    -webkit-text-fill-color: white !important;
+}
+
 
 input[type=submit] {
   width: 100%;
@@ -40,4 +88,14 @@ input[type=submit]:hover {
   color: red;
   font-size: 14px;
   font-weight: bold;
+}
+
+.btn-login {
+  color: white;
+  font-weight:100;
+}
+
+
+.image{
+  width:80%;
 }
